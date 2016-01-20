@@ -172,7 +172,7 @@
     type: string
     sql: ${TABLE}.GeoIP_longitude
 
-  - dimension: store_location
+  - dimension: ip_location
     type: location
     sql_latitude: ${geoip_latitude}
     sql_longitude: ${geoip_longitude}
