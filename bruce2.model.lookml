@@ -17,5 +17,7 @@
 
 - explore: events_view
 
+- explore: events_1020
+
 
 
