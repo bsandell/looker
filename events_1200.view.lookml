@@ -183,6 +183,17 @@
   - dimension: tos
     type: string
     sql: ${TABLE}.tos
+    
+  - dimension: src_ip_location
+    type: location
+    sql_latitude: ${src_geoip_latitude}
+    sql_longitude: ${src_geoip_longitude}
+
+  - dimension: dst_ip_location
+    type: location
+    sql_latitude: ${dst_geoip_latitude}
+    sql_longitude: ${dst_geoip_longitude}
+
 
   sets:
     detail:
