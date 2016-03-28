@@ -49,6 +49,27 @@
   - dimension: year
     type: int
     sql: ${TABLE}.year
+    
+  - dimension: previous_day_year
+    type: int
+    sql: extract(year from days_sub(now(), 1))
+    
+  - dimension: previous_day_month
+    type: int
+    sql: extract(month from days_sub(now(), 1))
+
+  - dimension: previous_day_day
+    type: int
+    sql: extract(day from days_sub(now(), 1))
+    
+  - dimension: is_yesterday
+    type: yesno
+    sql: from_unixtime(round(${ts}/1000),"yyyy-MM-dd") = trunc(subdate(now(), 1), 'HH')
+    
+  - dimension: my_yesterday
+    type: yesno
+    sql: (${previous_day_year} = ${year}) AND (${previous_day_month} = ${month}) AND (${previous_day_day} = ${day})
+
 
   - measure: count
     type: count
